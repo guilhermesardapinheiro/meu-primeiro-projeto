@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.my.api.entities.Empresa;
 import com.my.api.repositories.EmpresaRepository;
+import com.my.api.services.ExemploService;
 
 @SpringBootApplication
 public class MeuPrimeiroProjetoApplication {
@@ -20,6 +21,9 @@ public class MeuPrimeiroProjetoApplication {
 	
 	@Autowired
 	private EmpresaRepository empresaRepository;
+	
+	@Autowired
+	private ExemploService exemploService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MeuPrimeiroProjetoApplication.class, args);
@@ -28,33 +32,40 @@ public class MeuPrimeiroProjetoApplication {
 	
 	@Bean
 	public CommandLineRunner commandLineRunner() {
+//		TESTANDO APPLICATION PROPERTIES 			
 //		return args -> {
 //			System.out.println("### Quantidade de elementos por página = " + this.qtdPorPagina);			
 //		};
+
+//		TESTANDO JPA Repository		
+//		return args -> {
+//			Empresa empresa = new Empresa();
+//			empresa.setRazaoSocial("Guilherme TI");
+//			empresa.setCnpj("9999999999");
+//			
+//			this.empresaRepository.save(empresa);
+//
+//			List<Empresa> empresas = empresaRepository.findAll();
+//			empresas.forEach(System.out::println); //chamará o método toString da classe Empresa
+//			
+//			Empresa empresaDb = empresaRepository.findOne(1L);
+//			System.out.println("Empresa por ID: " + empresaDb);
+//			
+//			empresaDb.setRazaoSocial("Guilherme TI Web");
+//			this.empresaRepository.save(empresaDb);
+//
+//			Empresa empresaCnpj = empresaRepository.findByCnpj("9999999999");
+//			System.out.println("Empresa por CNPJ: " + empresaCnpj);
+//			
+//			this.empresaRepository.delete(1L);
+//			empresas = empresaRepository.findAll();
+//			System.out.println("Empresas: " + empresas.size());
+//			
+//		};
 		
+//		TESTANDO SERVICE	
 		return args -> {
-			Empresa empresa = new Empresa();
-			empresa.setRazaoSocial("Guilherme TI");
-			empresa.setCnpj("9999999999");
-			
-			this.empresaRepository.save(empresa);
-
-			List<Empresa> empresas = empresaRepository.findAll();
-			empresas.forEach(System.out::println); //chamará o método toString da classe Empresa
-			
-			Empresa empresaDb = empresaRepository.findOne(1L);
-			System.out.println("Empresa por ID: " + empresaDb);
-			
-			empresaDb.setRazaoSocial("Guilherme TI Web");
-			this.empresaRepository.save(empresaDb);
-
-			Empresa empresaCnpj = empresaRepository.findByCnpj("9999999999");
-			System.out.println("Empresa por CNPJ: " + empresaCnpj);
-			
-			this.empresaRepository.delete(1L);
-			empresas = empresaRepository.findAll();
-			System.out.println("Empresas: " + empresas.size());
-			
+			this.exemploService.testarServico();				
 		};
 	}
 }
