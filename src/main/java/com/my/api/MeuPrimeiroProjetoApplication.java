@@ -27,11 +27,10 @@ public class MeuPrimeiroProjetoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MeuPrimeiroProjetoApplication.class, args);
-		System.out.println("teste");
 	}
 	
-	@Bean
-	public CommandLineRunner commandLineRunner() {
+//	@Bean
+//	public CommandLineRunner commandLineRunner() {
 //		TESTANDO APPLICATION PROPERTIES 			
 //		return args -> {
 //			System.out.println("### Quantidade de elementos por página = " + this.qtdPorPagina);			
@@ -64,8 +63,8 @@ public class MeuPrimeiroProjetoApplication {
 //		};
 		
 //		TESTANDO SERVICE	
-		return args -> {
-			this.exemploService.testarServico();				
-		};
-	}
+//		return args -> {
+//			this.exemploService.testarServico();				
+//		};
+//	}
 }
