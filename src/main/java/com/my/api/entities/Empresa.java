@@ -30,8 +30,7 @@ public class Empresa implements Serializable {
 	@Column(name = "razao_social", nullable = false)
 	private String razaoSocial;
 	
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "cnpj", nullable = false)
 	private String cnpj;
 	
 	@Column(name = "data_criacao", nullable = false)
